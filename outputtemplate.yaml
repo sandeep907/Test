@@ -2,14 +2,26 @@
   "AWSTemplateFormatVersion": "2010-09-09",
   "Transform": "AWS::Serverless-2016-10-31",
   "Description": "An AWS Serverless Application that uses the ASP.NET Core framework running in Amazon Lambda.",
-
+ "Parameters": {
+    "S3Bucket": {
+      "Type": "String",
+      "Description": "Name of S3 bucket that will be proxied. If left blank a name will be generated."
+    },
+    "S3Key": {
+      "Type": "String",
+      "Description": "Name of S3 bucket that will be proxied. If left blank a name will be generated."
+    }
+  },
   "Resources": {
     "AspNetCoreFunction": {
       "Type": "AWS::Serverless::Function",
       "Properties": {
         "Handler": "testCICD::testCICD.LambdaEntryPoint::FunctionHandlerAsync",
         "Runtime": "dotnetcore3.1",
-        "CodeUri": "./testCICD",
+        "Code":{
+            "S3Bucket": "!Ref buildBucketName",
+            "S3Key": "!Ref buildObjectKey"
+        },
         "MemorySize": 256,
         "Timeout": 30,
         "Role": null,
