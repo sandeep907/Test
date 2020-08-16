@@ -23,7 +23,7 @@
         {
           "Ref": "ShouldCreateBucket"
         },
-        "false"
+        "true"
       ]
     },
     "BucketNameGenerated": {
@@ -31,7 +31,7 @@
         {
           "Ref": "BucketName"
         },
-        "cicdlamdatest"
+        ""
       ]
     }
   },
@@ -72,7 +72,7 @@
             }
           },
           "RootResource": {
-            "Type": "HttpApi",
+            "Type": "Api",
             "Properties": {
               "Path": "/",
               "Method": "ANY"
