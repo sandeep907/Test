@@ -23,7 +23,7 @@
         {
           "Ref": "ShouldCreateBucket"
         },
-        "true"
+        "false"
       ]
     },
     "BucketNameGenerated": {
@@ -31,7 +31,7 @@
         {
           "Ref": "BucketName"
         },
-        "cicdlamdatest"
+        ""
       ]
     }
   },
@@ -80,23 +80,6 @@
           }
         }
       }
-    },
-    "Bucket": {
-      "Type": "AWS::S3::Bucket",
-      "Condition": "CreateS3Bucket",
-      "Properties": {
-        "BucketName": {
-          "Fn::If": [
-            "BucketNameGenerated",
-            {
-              "Ref": "AWS::NoValue"
-            },
-            {
-              "Ref": "BucketName"
-            }
-          ]
-        }
-      }
     }
   },
   "Outputs": {
@@ -104,19 +87,6 @@
       "Description": "API endpoint URL for Prod environment",
       "Value": {
         "Fn::Sub": "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/"
-      }
-    },
-    "S3ProxyBucket": {
-      "Value": {
-        "Fn::If": [
-          "CreateS3Bucket",
-          {
-            "Ref": "Bucket"
-          },
-          {
-            "Ref": "BucketName"
-          }
-        ]
       }
     }
   }
