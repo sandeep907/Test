@@ -9,7 +9,7 @@
       "Properties": {
         "Handler": "testCICD::testCICD.LambdaEntryPoint::FunctionHandlerAsync",
         "Runtime": "dotnetcore3.1",
-        "CodeUri": "",
+        "CodeUri": "./testCICD",
         "MemorySize": 256,
         "Timeout": 30,
         "Role": null,
