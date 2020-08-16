@@ -26,7 +26,7 @@
         "true"
       ]
     },
-    "CreateS3Bucket": {
+    "BucketName": {
       "Fn::Equals": [
         {
           "Ref": "BucketName"
