@@ -23,7 +23,7 @@
         {
           "Ref": "ShouldCreateBucket"
         },
-        "true"
+        "false"
       ]
     },
     "BucketNameGenerated": {
@@ -72,7 +72,7 @@
             }
           },
           "RootResource": {
-            "Type": "Api",
+            "Type": "HttpApi",
             "Properties": {
               "Path": "/",
               "Method": "ANY"

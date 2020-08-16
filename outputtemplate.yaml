@@ -23,7 +23,7 @@
         {
           "Ref": "ShouldCreateBucket"
         },
-        "true"
+        "false"
       ]
     },
     "BucketNameGenerated": {
@@ -65,7 +65,7 @@
         },
         "Events": {
           "ProxyResource": {
-            "Type": "Api",
+            "Type": "HttpApi",
             "Properties": {
               "Path": "/{proxy+}",
               "Method": "ANY"
