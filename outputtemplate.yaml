@@ -19,8 +19,8 @@
         "Handler": "testCICD::testCICD.LambdaEntryPoint::FunctionHandlerAsync",
         "Runtime": "dotnetcore3.1",
         "Code":{
-            "S3Bucket": "!Ref buildBucketName",
-            "S3Key": "!Ref buildObjectKey"
+            "S3Bucket": "{!Ref buildBucketName}",
+            "S3Key": "{!Ref buildObjectKey}"
         },
         "MemorySize": 256,
         "Timeout": 30,
