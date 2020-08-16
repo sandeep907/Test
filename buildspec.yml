@@ -10,3 +10,6 @@ phases:
   build:
     commands:
       - dotnet lambda deploy-serverless --project-location ./testCICD/
+artifacts:
+  files:
+    - '**/*'
