@@ -4,11 +4,13 @@ phases:
   install:
     runtime-versions:
       dotnet: 3.1
-     build:
     commands:
-      - aws cloudformation package --template-file template.yaml --s3-bucket testcicdpkg --output-template-file outputtemplate.yaml
+      - export PATH="$PATH:/root/.dotnet/tools"
+      - dotnet tool install -g Amazon.Lambda.Tools
+  build:
+    commands:
+      - dotnet lambda deploy-serverless --project-location ./testCICD/
+aws cloudformation package --template-file template.yaml --s3-bucket testcicdpkg --output-template-file outputtemplate.yaml
 artifacts:
-type:zip
   files:
-  -template.yaml
-  -outputtemplate.yaml
+    - '**/*'
