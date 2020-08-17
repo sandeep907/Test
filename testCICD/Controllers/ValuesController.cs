@@ -13,7 +13,7 @@ namespace testCICD.Controllers
         [HttpGet]
         public IEnumerable<string> Get()
         {
-            return new string[] { "reddy", "vfdalue2" };
+            return new string[] { "reddy", "sandeep" };
         }
 
         // GET api/values/5
