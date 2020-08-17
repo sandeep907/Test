@@ -9,7 +9,6 @@ phases:
       - dotnet tool install -g Amazon.Lambda.Tools
   build:
     commands:
-      - dotnet lambda deploy-serverless --project-location ./testCICD/
       - aws cloudformation package --template-file template.yaml --s3-bucket testcicdpkg --output-template-file outputtemplate.yaml
 artifacts:
 type:zip
