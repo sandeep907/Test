@@ -4,10 +4,7 @@ phases:
   install:
     runtime-versions:
       dotnet: 3.1
-    commands:
-      - export PATH="$PATH:/root/.dotnet/tools"
-      - dotnet tool install -g Amazon.Lambda.Tools
-  build:
+     build:
     commands:
       - aws cloudformation package --template-file template.yaml --s3-bucket testcicdpkg --output-template-file outputtemplate.yaml
 artifacts:
